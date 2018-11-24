@@ -3,7 +3,7 @@ The State History plugin is a new Nodeos plugin developed by Todd Fleming at Blo
 
 ### How it works:
 * The plugin writes the history events to new a new directory in the `/data` directory of Nodeos.
-* A separate utility `fill-Postgres` connects via websocket to the state history plugin running on Nodeos and reads from the new state history files to then insert the data into your Postgres database.
+* A separate utility `fill-Postgres` connects via websocket to the state history plugin running on Nodeos and reads from the new state history files to then insert the data into a Postgres database.
 * We can then query the Postgres database for things like action traces, account information and block / transaction information.
 
 ### Advantages:
@@ -15,6 +15,8 @@ The State History plugin is a new Nodeos plugin developed by Todd Fleming at Blo
 
 # Overview
 The goal of this project is to create a new public API interface to allow existing dApp developers to seamlessly query the new Postgresql database format created by the state history plugin and have it return everything in the same format as the existing (now deprecated and unmaintainable) history plugin.
+
+As ongoing development efforts continue on a new API standard with the Elastic Search plugin, this API will be maintained to that new standard as it is developed.
 
 This will give block producers more flexibility in choosing the history backend they are most comfortable with, and further advances efforts to develop a full replacement for the existing history plugin.
 
