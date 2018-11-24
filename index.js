@@ -1,16 +1,15 @@
 /*###############################################################################
 #
-# EOS Mongo History API
-# API to get actions using EOS mongo plugin (similar to history plugin)
+# EOS Postgres State History API
+# API to get actions using EOS state history plugin + Postgresql (similar to history plugin)
 #
 # Examples:
 # https://history.cryptolions.io/v1/history/get_actions/cryptolions1
 # https://history.cryptolions.io/v1/history/get_actions/cryptolions1/sethash
 # https://history.cryptolions.io/v1/history/get_actions/cryptolions1/sethash?limit=2&skip=1&sort=-1
 #
-# Git Hub: https://github.com/CryptoLions/EOS-mongo-history-API
-#
-# Created by http://CryptoLions.io
+# Created by Andrew Coutts
+# Based on CryptoLions Mongo History API: https://github.com/CryptoLions/EOS-mongo-history-API
 #
 ###############################################################################  */
 require('appmetrics-dash').monitor();
@@ -77,7 +76,7 @@ MongoClient.connect( CONFIG.mongoURL, MONGO_OPTIONS, (err, db) => {
 		}
         console.log("=== Database Connected!");
         let dbo = db.db(CONFIG.mongoDB);
-		require('./api/v1.api.history')(app, dbo, swaggerSpec);        
+		require('./api/v1.api.history')(app, dbo, swaggerSpec);
 });
 
 const http 	= require('http').Server(app);
