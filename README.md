@@ -26,7 +26,7 @@ This will give block producers more flexibility in choosing the history backend 
 
 ## Tips:
 * `fill-postgresql` works best on Ubuntu 18.10
-* Use the build_indexes.sh script to create the required Postgres indexes (will take several hours depending on database hardware used)
+* Use the `build_indexes.sh` script to create the required Postgres indexes (will take several hours depending on database hardware used)
 
 # Requirements
 Storage requirements on Nodeos as of block ~28.6M:
