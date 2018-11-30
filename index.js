@@ -1,4 +1,4 @@
-/*###############################################################################
+/* ###############################################################################
 #
 # EOS Postgres State History API
 # API to get actions using EOS state history plugin + Postgresql (similar to history plugin)
@@ -17,6 +17,8 @@ const MongoClient 	= require('mongodb').MongoClient;
 const swaggerJSDoc 	= require('swagger-jsdoc');
 const bodyparser 	= require('body-parser');
 const CONFIG		= require('./config.js');
+const express 		= require('express');
+const app 			  = express();
 
 const MONGO_OPTIONS = {
     socketTimeoutMS: 60000,
@@ -34,9 +36,6 @@ const swaggerSpec = swaggerJSDoc({
   },
   apis: ['./api/v1.api.history.js'],
 });
-
-const express 		= require('express');
-const app 			  = express();
 
 // parse requests from eosjs (v16.0.0 - 16.0.9)
 app.use((req, res, next) => {

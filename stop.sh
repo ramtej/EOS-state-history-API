@@ -1,25 +1,20 @@
 #!/bin/bash
-################################################################################
-#
-# Scrip Created by http://CryptoLions.io
-#
-###############################################################################
+###########################################################################
+# Startup script based on http://CryptoLions.io
+###########################################################################
 
-DIR="./"
+if [ -f $(pwd)"/statehistoryapi.pid" ]; then
+  pid=`cat $(pwd)"/statehistoryapi.pid"`
+  echo $pid
+  kill $pid
+  rm -r $(pwd)"/statehistoryapi.pid"
 
+  echo -ne "Stoping State History API"
 
-    if [ -f $DIR"/mongo.pid" ]; then
-        pid=`cat $DIR"/mongo.pid"`
-        echo $pid
-        kill $pid
-        rm -r $DIR"/mongo.pid"
-
-        echo -ne "Stoping Daemon"
-
-        while true; do
-            [ ! -d "/proc/$pid/fd" ] && break
-            echo -ne "."
-            sleep 1
-        done
-        echo -ne "\rDaemon Stopped.    \n"
-    fi
+  while true; do
+    [ ! -d "/proc/$pid/fd" ] && break
+    echo -ne "."
+    sleep 1
+  done
+  echo -ne "\rState History API Stopped.    \n"
+fi
