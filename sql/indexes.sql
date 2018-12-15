@@ -1,4 +1,4 @@
-create index if not exists name_idx on chain.action_trace(name)
+create index if not exists name_idx on chain.action_trace(name);
 create index if not exists account_name_idx on chain.account(name);
 create index if not exists action_trace_receipt_receiver_block_index_order_desc_idx on chain.action_trace(receipt_receiver, block_index DESC NULLS LAST);
 create index if not exists action_trace_receipt_receiver_order_desc_idx on chain.action_trace(receipt_receiver DESC NULLS LAST);
